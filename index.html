@@ -274,8 +274,8 @@ const CONFIG = {
     { nombre: 'Morado', hex: '#8B5CC8' },
     { nombre: 'Azul',   hex: '#1E9BC9' }
   ],
-  envio: 'Lima: 24 a 48 horas · Provincias: 2 a 5 días hábiles',
-  pago:  'Lima: pagas contra entrega, cuando recibes tu pedido. Provincias: separas tu pedido con un adelanto de S/ 20 y el resto lo pagas al recibirlo.',
+  envio: 'Lima: 24 a 48 horas · Provincias: 2 a 5 días hábiles por agencia Shalom',
+  pago:  'Lima: pagas contra entrega, cuando recibes tu pedido. Provincias: enviamos por agencia Shalom; separas tu pedido con un adelanto de S/ 20 y el resto lo pagas al recibirlo.',
   urgencia: 'Quedan pocas unidades en rosado'                       // opcional y REAL, ej: 'Quedan 12 unidades en rosado' o 'Precio válido hasta el domingo'. Vacío = no se muestra
 };
 </script>
@@ -384,7 +384,7 @@ const CONFIG = {
     <div><i>📘</i><b>No te dejamos sola con la banda</b><p>Guía ilustrada, rutina de 15 minutos con dibujos y plan semanal.</p></div>
     <div><i>🥗</i><b>Ejercicio + alimentación</b><p>Menú Ligero y 15 Jugos Desinflamantes, para que el esfuerzo se note más.</p></div>
     <div><i>🎨</i><b>Eliges tus colores</b><p>Rosado, morado o azul. Si pides 2 o 3, uno distinto para cada uno.</p></div>
-    <div><i>🚚</i><b>Envío gratis a todo el Perú</b><p>Lima en 24 a 48 horas. Provincias en 2 a 5 días hábiles.</p></div>
+    <div><i>🚚</i><b>Envío gratis a todo el Perú</b><p>Lima en 24 a 48 horas. Provincias en 2 a 5 días hábiles por Shalom.</p></div>
     <div><i>💬</i><b>Atención por WhatsApp</b><p>Una persona real confirma tu pedido y te ayuda si tienes dudas.</p></div>
   </div>
 </div></section>
@@ -509,12 +509,13 @@ const CONFIG = {
     <div class="f" data-f="zona"><label>¿Dónde lo recibes?</label>
       <div class="zone">
         <label><input type="radio" name="zona" value="Lima" checked><span>Lima / Callao<small>Pagas contra entrega</small></span></label>
-        <label><input type="radio" name="zona" value="Provincia"><span>Provincia<small>Adelanto de S/ 20</small></span></label>
+        <label><input type="radio" name="zona" value="Provincia"><span>Provincia<small>Por Shalom · adelanto S/ 20</small></span></label>
       </div>
     </div>
     <div class="f" data-f="prov" id="provBox" hidden><label for="fProv">Departamento / provincia</label><input id="fProv" list="depList" placeholder="Ej: Arequipa"><div class="err">Escribe tu provincia.</div></div>
-    <div class="f" data-f="dist"><label for="fDist">Distrito</label><input id="fDist" list="limaList" placeholder="Ej: San Juan de Lurigancho"><div class="err">Escribe tu distrito.</div></div>
+    <div class="f" data-f="dist" id="distBox"><label for="fDist">Distrito</label><input id="fDist" list="limaList" placeholder="Ej: San Juan de Lurigancho"><div class="err">Escribe tu distrito.</div></div>
     <div class="f" data-f="dir" id="dirBox"><label for="fDir">Dirección y referencia</label><input id="fDir" autocomplete="street-address" placeholder="Ej: Av. Los Álamos 123, frente al parque"><div class="err">Escribe tu dirección para la entrega.</div></div>
+    <div class="f" id="agBox" hidden><label for="fAg">Agencia Shalom de preferencia (opcional)</label><input id="fAg" placeholder="Ej: Shalom Av. Ejército, Arequipa"></div>
     <p class="paynote" id="payNote"></p>
     <button type="submit" class="cta pulse">WA_ICON PEDIR AHORA</button>
     <p class="micro" style="text-align:center">Tus datos llegan al vendedor por WhatsApp para confirmar tu pedido.</p>
@@ -550,11 +551,10 @@ function waLink(d) {
 • Nombre: ${d.nombre || ''}
 • DNI: ${d.dni || ''}
 • Celular: ${d.cel || ''}
-• Envío: ${lima ? 'Lima / Callao' : 'Provincia'}${lima ? '' : `
+• Envío: ${lima ? 'Lima / Callao' : 'Provincia (agencia Shalom)'}${lima ? '' : `
 • Provincia: ${d.prov || ''}`}
-• Distrito: ${d.dist || ''}${lima ? `
-• Dirección: ${d.dir || ''}` : ''}${!lima && d.dir ? `
-• Dirección / agencia: ${d.dir}` : ''}
+${lima ? `• Distrito: ${d.dist || ''}
+• Dirección: ${d.dir || ''}` : `• Agencia Shalom: ${d.ag || 'coordinamos por WhatsApp'}`}
 
 💳 Pago: ${lima ? 'contra entrega' : 'adelanto de S/ 20 y el resto al recibir'}`;
   return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
@@ -619,12 +619,12 @@ function zone() { return form.querySelector('input[name=zona]:checked').value; }
 function syncZone() {
   const lima = zone() === 'Lima';
   $('provBox').hidden = lima;
-  $('fDist').setAttribute('list', lima ? 'limaList' : '');
-  $('fDist').placeholder = lima ? 'Ej: San Juan de Lurigancho' : 'Ej: Cayma';
-  $('dirBox').querySelector('label').textContent = lima ? 'Dirección y referencia' : 'Dirección o agencia de preferencia (opcional)';
+  $('distBox').hidden = !lima;
+  $('dirBox').hidden = !lima;
+  $('agBox').hidden = lima;
   $('payNote').textContent = lima
     ? '💵 Lima / Callao: pagas cuando recibes tu pedido (contra entrega).'
-    : '💳 Provincia: separas tu pedido con un adelanto de S/ 20 y el resto lo pagas al recibirlo.';
+    : '💳 Provincia: enviamos por agencia Shalom. Separas tu pedido con un adelanto de S/ 20 y el resto lo pagas al recibirlo. La agencia la coordinamos por WhatsApp.';
 }
 form.querySelectorAll('input[name=zona]').forEach(r => r.addEventListener('change', syncZone));
 ['fDni', 'fCel'].forEach(id => $(id).addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, ''); }));
@@ -633,13 +633,13 @@ form.addEventListener('submit', e => {
   e.preventDefault();
   const lima = zone() === 'Lima';
   const d = { nombre: $('fNombre').value.trim(), dni: $('fDni').value.trim(), cel: $('fCel').value.trim(), zona: zone(),
-              prov: $('fProv').value.trim(), dist: $('fDist').value.trim(), dir: $('fDir').value.trim() };
+              prov: $('fProv').value.trim(), dist: $('fDist').value.trim(), dir: $('fDir').value.trim(), ag: $('fAg').value.trim() };
   const checks = {
     nombre: d.nombre.split(/\s+/).length >= 2,
     dni: /^\d{8}$/.test(d.dni),
     cel: /^9\d{8}$/.test(d.cel),
     prov: lima || d.prov.length > 1,
-    dist: d.dist.length > 1,
+    dist: !lima || d.dist.length > 1,
     dir: !lima || d.dir.length > 4
   };
   let first = null;
