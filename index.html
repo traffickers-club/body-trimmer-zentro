@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Body Trimmer · Tu gym en casa | ZENTRO</title>
+<meta name="description" content="Body Trimmer: abdomen, piernas, glúteos y brazos en 15 minutos al día desde casa. Envíos a todo el Perú.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#9E0B0F; --red-2:#C3151B; --dark:#3A0505; --pink:#F2A6B8; --pink-soft:#FDE4EA;
+    --cream:#FFF8F6; --ink:#2A1A1A; --muted:#6E5A5A; --wa:#25D366; --wa-dark:#128C4A;
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ font-family:'Poppins',sans-serif; color:var(--ink); background:var(--cream); line-height:1.5; padding-bottom:84px; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 18px; }
+  section{ padding:56px 0; }
+  h2{ font-size:clamp(28px,6vw,42px); line-height:1.1; font-weight:800; color:var(--dark); letter-spacing:-.5px; text-align:center; }
+  h2 span{ color:var(--red); }
+  .lead{ text-align:center; color:var(--muted); font-size:17px; margin:12px auto 0; max-width:620px; }
+
+  /* barra superior */
+  .bar{ background:var(--dark); color:#fff; font-size:14px; font-weight:500; text-align:center; padding:9px 12px; }
+  .bar b{ color:var(--pink); }
+
+  header{ padding:14px 0; }
+  header .wrap{ display:flex; justify-content:space-between; align-items:center; }
+  header img{ height:52px; width:auto; }
+
+  /* botón WhatsApp */
+  .cta{
+    display:inline-flex; align-items:center; justify-content:center; gap:12px; text-decoration:none; cursor:pointer; border:0;
+    background:var(--wa); color:#fff; font-family:inherit; font-weight:800; font-size:19px; letter-spacing:.3px;
+    padding:18px 30px; border-radius:60px; box-shadow:0 10px 26px rgba(37,211,102,.35);
+    transition:transform .15s, box-shadow .15s; width:100%; max-width:440px;
+  }
+  .cta:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(37,211,102,.45); }
+  .cta svg{ width:26px; height:26px; flex:none; }
+  .cta.pulse{ animation:pulse 2.2s infinite; }
+  @keyframes pulse{ 0%,100%{ box-shadow:0 10px 26px rgba(37,211,102,.35), 0 0 0 0 rgba(37,211,102,.5);} 60%{ box-shadow:0 10px 26px rgba(37,211,102,.35), 0 0 0 16px rgba(37,211,102,0);} }
+  .micro{ font-size:13.5px; color:var(--muted); margin-top:10px; }
+
+  /* hero */
+  .hero{ padding:10px 0 50px; }
+  .hero .wrap{ display:grid; grid-template-columns:1fr; gap:26px; align-items:center; }
+  .hero-img{ position:relative; border-radius:28px; overflow:hidden; background:#fff; box-shadow:0 14px 40px rgba(158,11,15,.15); aspect-ratio:3/4; }
+  .hero-img img{ width:100%; height:100%; object-fit:cover; }
+  .photo img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .photo{ max-width:480px; margin:28px auto 0; border-radius:28px; overflow:hidden; background:#fff; box-shadow:0 10px 30px rgba(158,11,15,.10); }
+  .badge{ position:absolute; top:16px; left:16px; background:var(--red); color:#fff; font-weight:700; font-size:14px; padding:7px 14px; border-radius:30px; }
+  .kicker{ display:inline-block; background:var(--pink-soft); color:var(--red); font-weight:700; font-size:14px; padding:6px 14px; border-radius:30px; }
+  .hero h1{ font-size:clamp(36px,8.5vw,60px); line-height:1.02; font-weight:800; color:var(--dark); letter-spacing:-1.5px; margin-top:14px; }
+  .hero h1 span{ color:var(--red); }
+  .hero p.sub{ font-size:18px; color:var(--muted); margin-top:14px; }
+  .checks{ list-style:none; margin:20px 0 24px; display:grid; gap:9px; }
+  .checks li{ display:flex; gap:10px; font-size:16.5px; font-weight:500; }
+  .checks li::before{ content:"✓"; flex:none; width:24px; height:24px; border-radius:50%; background:var(--red); color:#fff; font-size:13px; font-weight:800; display:grid; place-items:center; margin-top:1px; }
+  .price{ display:flex; align-items:baseline; gap:10px; margin-bottom:16px; }
+  .price strong{ font-size:46px; font-weight:800; color:var(--red); line-height:1; }
+  .price span{ font-size:15px; color:var(--muted); }
+
+  /* confianza */
+  .trust{ background:#fff; padding:22px 0; border-top:1px solid #F3E3E5; border-bottom:1px solid #F3E3E5; }
+  .trust .wrap{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+  .trust div{ display:flex; gap:10px; align-items:center; font-size:14.5px; font-weight:600; color:var(--dark); }
+  .trust i{ font-style:normal; font-size:26px; }
+
+  /* beneficios */
+  .grid4{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:32px; }
+  .card{ background:#fff; border-radius:24px; padding:22px 18px; box-shadow:0 8px 24px rgba(158,11,15,.07); text-align:center; }
+  .card .ic{ font-size:38px; }
+  .card b{ display:block; font-size:17px; color:var(--dark); margin-top:6px; line-height:1.25; }
+  .card p{ font-size:14.5px; color:var(--muted); margin-top:6px; }
+
+  /* problema */
+  .pain{ background:var(--dark); color:#fff; }
+  .pain h2{ color:#fff; }
+  .pain h2 span{ color:var(--pink); }
+  .pain ul{ list-style:none; max-width:560px; margin:28px auto 0; display:grid; gap:12px; }
+  .pain li{ background:rgba(255,255,255,.07); border-radius:16px; padding:14px 18px; font-size:16.5px; display:flex; gap:12px; }
+  .pain .ans{ text-align:center; font-size:20px; font-weight:700; margin-top:28px; color:var(--pink); }
+
+  /* ejercicios */
+  .exs{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:32px; }
+  .ex{ background:#fff; border-radius:24px; padding:14px 14px 16px; box-shadow:0 8px 24px rgba(158,11,15,.07); }
+  .ex svg{ width:100%; height:auto; display:block; overflow:hidden; }
+  .ex b{ display:block; font-size:16px; color:var(--dark); margin-top:4px; }
+  .ex span{ font-size:13px; font-weight:600; color:var(--red); }
+
+  /* comparativa */
+  .vs{ max-width:640px; margin:30px auto 0; background:#fff; border-radius:24px; overflow:hidden; box-shadow:0 8px 24px rgba(158,11,15,.07); }
+  .vs .row{ display:grid; grid-template-columns:1.2fr 1fr 1fr; font-size:15px; align-items:stretch; }
+  .vs .row > div{ display:flex; align-items:center; }
+  .vs .them, .vs .us{ justify-content:center; }
+  .vs .row > div{ padding:14px 12px; border-bottom:1px solid #F5E8EA; }
+  .vs .head > div{ font-weight:800; font-size:15px; }
+  .vs .head .us{ background:var(--red); color:#fff; }
+  .vs .us{ background:var(--pink-soft); font-weight:700; color:var(--dark); text-align:center; }
+  .vs .them{ color:var(--muted); text-align:center; }
+
+  /* incluye */
+  .box{ max-width:640px; margin:30px auto 0; background:#fff; border-radius:28px; padding:28px 24px; box-shadow:0 8px 24px rgba(158,11,15,.07); }
+  .box li{ list-style:none; display:flex; gap:12px; padding:10px 0; border-bottom:1px dashed #EED9DC; font-size:16px; }
+  .box li:last-child{ border:0; }
+  .box li i{ font-style:normal; font-size:22px; flex:none; }
+  .gift{ display:inline-block; background:var(--red); color:#fff; font-size:12px; font-weight:700; padding:2px 10px; border-radius:20px; margin-left:6px; vertical-align:2px; }
+
+  /* bonos */
+  .bonus{ background:#fff; }
+  .bonos{ display:grid; grid-template-columns:1fr; gap:22px; margin-top:32px; max-width:900px; margin-left:auto; margin-right:auto; }
+  .bono{ background:var(--cream); border-radius:28px; padding:22px; box-shadow:0 8px 24px rgba(158,11,15,.08); }
+  .bono .cover{ position:relative; border-radius:18px; overflow:hidden; box-shadow:0 10px 24px rgba(0,0,0,.15); max-width:300px; margin:0 auto; transform:rotate(-2deg); }
+  .bono .cover span{ position:absolute; top:12px; right:12px; background:var(--red); color:#fff; font-size:12px; font-weight:800; padding:4px 12px; border-radius:20px; }
+  .bono h3{ font-size:23px; color:var(--dark); margin-top:22px; text-align:center; }
+  .bono .pages{ text-align:center; font-size:14px; color:var(--red); font-weight:600; }
+  .bono ul{ list-style:none; margin-top:14px; display:grid; gap:8px; }
+  .bono li{ display:flex; gap:10px; font-size:15px; }
+  .bono li::before{ content:"✓"; color:var(--red); font-weight:800; flex:none; }
+  @media (min-width:820px){ .bonos{ grid-template-columns:1fr 1fr; } }
+
+  /* pedido */
+  .order{ background:linear-gradient(180deg,var(--cream),var(--pink-soft)); }
+  .order-card{ max-width:520px; margin:30px auto 0; background:#fff; border-radius:30px; padding:28px 22px; box-shadow:0 18px 44px rgba(158,11,15,.16); text-align:center; }
+  .order-card .price{ justify-content:center; }
+  .lbl{ font-weight:700; font-size:15px; color:var(--dark); margin:18px 0 10px; }
+  .colors{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+  .color{ border:2px solid #E8D5D8; background:#fff; border-radius:40px; padding:8px 16px 8px 10px; display:flex; align-items:center; gap:8px; font-family:inherit; font-size:15px; font-weight:600; cursor:pointer; color:var(--ink); }
+  .color i{ width:22px; height:22px; border-radius:50%; display:block; border:2px solid rgba(0,0,0,.08); }
+  .color.on{ border-color:var(--red); background:var(--pink-soft); }
+  /* ofertas */
+  .offers{ display:grid; gap:12px; margin:4px 0 16px; text-align:left; }
+  .offer{ position:relative; display:flex; align-items:center; gap:14px; background:#fff; border:2px solid #EBDCDF; border-radius:16px; padding:18px 16px; cursor:pointer; transition:border-color .15s, background .15s; }
+  .offer.on{ border-color:var(--red); background:var(--pink-soft); }
+  .offer .radio{ flex:none; width:24px; height:24px; border-radius:50%; border:2px solid #B9A3A5; display:grid; place-items:center; }
+  .offer.on .radio{ border-color:var(--red); }
+  .offer.on .radio::after{ content:""; width:12px; height:12px; border-radius:50%; background:var(--red); }
+  .offer .nm{ flex:1; min-width:0; }
+  .offer .nm b{ display:block; font-size:18px; font-weight:800; color:var(--dark); text-transform:uppercase; letter-spacing:.3px; }
+  .offer .nm span{ font-size:13.5px; color:var(--muted); }
+  .offer .nm span.save{ color:#1F7A3E; font-weight:700; }
+  .offer .pr{ text-align:right; white-space:nowrap; }
+  .offer .pr b{ display:block; font-size:21px; font-weight:800; color:var(--dark); }
+  .offer .pr s{ font-size:14px; color:#C0392B; }
+  .offer .bdg{ position:absolute; top:-11px; right:12px; background:var(--dark); color:#fff; font-size:11.5px; font-weight:700; padding:3px 10px; border-radius:6px; }
+  .offer-note{ border:2px dashed #EBDCDF; border-radius:14px; padding:12px 14px; font-size:14px; color:var(--muted); margin-bottom:16px; text-align:left; }
+  .offer-note b{ color:var(--dark); }
+  .unit-colors{ display:grid; gap:12px; }
+  .unit-colors .row{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .unit-colors .row small{ font-weight:600; color:var(--muted); font-size:13.5px; }
+  .qty{ display:inline-flex; align-items:center; border:2px solid #E8D5D8; border-radius:40px; overflow:hidden; }
+  .qty button{ width:46px; height:44px; border:0; background:#fff; font-size:22px; font-weight:700; color:var(--red); cursor:pointer; }
+  .qty output{ width:46px; text-align:center; font-weight:800; font-size:18px; }
+  .total{ margin:18px 0 18px; font-size:16px; color:var(--muted); }
+  .total b{ color:var(--dark); font-size:20px; }
+
+  /* faq */
+  .faq{ max-width:680px; margin:30px auto 0; display:grid; gap:10px; }
+  details{ background:#fff; border-radius:18px; padding:16px 20px; box-shadow:0 6px 18px rgba(158,11,15,.06); }
+  summary{ font-weight:700; font-size:16px; color:var(--dark); cursor:pointer; list-style:none; display:flex; justify-content:space-between; gap:12px; }
+  summary::after{ content:"+"; color:var(--red); font-size:22px; line-height:1; }
+  details[open] summary::after{ content:"–"; }
+  details p{ margin-top:10px; color:var(--muted); font-size:15.5px; }
+
+  footer{ background:var(--dark); color:rgba(255,255,255,.7); text-align:center; font-size:13px; padding:30px 18px; }
+  footer img{ height:46px; width:auto; margin:0 auto 10px; background:#fff; border-radius:12px; padding:6px 10px; }
+
+  /* formulario de pedido */
+  .modal{ position:fixed; inset:0; z-index:100; background:rgba(42,10,12,.55); display:none; align-items:flex-end; justify-content:center; }
+  .modal.open{ display:flex; }
+  .sheet{ background:#fff; width:100%; max-width:520px; max-height:94vh; overflow:auto; border-radius:26px 26px 0 0; padding:22px 20px 26px; animation:up .25s ease-out; }
+  @keyframes up{ from{ transform:translateY(40px); opacity:0; } to{ transform:none; opacity:1; } }
+  .sheet-hd{ display:flex; justify-content:space-between; align-items:center; }
+  .sheet-hd h3{ font-size:22px; color:var(--dark); line-height:1.15; }
+  .x{ width:38px; height:38px; border-radius:50%; border:0; background:var(--pink-soft); color:var(--red); font-size:22px; font-weight:700; cursor:pointer; flex:none; }
+  .sum{ background:var(--cream); border:2px solid #F1E2E4; border-radius:16px; padding:12px 14px; margin-top:14px; font-size:14.5px; }
+  .sum .l1{ display:flex; justify-content:space-between; gap:10px; font-weight:700; color:var(--dark); }
+  .sum .l1 b{ color:var(--red); white-space:nowrap; }
+  .sum .l2{ color:var(--muted); font-size:13px; margin-top:2px; }
+  .sum .unit-colors{ margin-top:10px; }
+  .sum .unit-colors{ gap:8px; }
+  .sum .unit-colors .row{ flex-direction:row; justify-content:space-between; gap:6px; }
+  .sum .unit-colors .row small{ white-space:nowrap; font-size:12.5px; }
+  .sum .colors{ flex-wrap:nowrap; gap:6px; justify-content:flex-start; }
+  .sum .color{ padding:5px 9px 5px 5px; font-size:12.5px; gap:5px; border-width:2px; }
+  .sum .color i{ width:16px; height:16px; }
+  .f{ margin-top:14px; text-align:left; }
+  .f label{ display:block; font-weight:600; font-size:14px; color:var(--dark); margin-bottom:6px; }
+  .f input{ width:100%; font-family:inherit; font-size:16px; padding:13px 14px; border:2px solid #E8D5D8; border-radius:12px; background:#fff; color:var(--ink); outline:none; }
+  .f input:focus{ border-color:var(--red); }
+  .f .err{ display:none; color:#C0392B; font-size:12.5px; margin-top:4px; }
+  .f.bad input{ border-color:#C0392B; }
+  .f.bad .err{ display:block; }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .zone{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .zone label{ margin:0; position:relative; }
+  .zone input{ position:absolute; opacity:0; left:0; top:0; width:1px; height:1px; }
+  .zone span{ display:block; text-align:center; border:2px solid #E8D5D8; border-radius:12px; padding:12px 8px; font-weight:700; font-size:15px; cursor:pointer; color:var(--ink); }
+  .zone small{ display:block; font-weight:500; font-size:12px; color:var(--muted); }
+  .zone input:checked + span{ border-color:var(--red); background:var(--pink-soft); color:var(--dark); }
+  .zone input:focus-visible + span{ outline:3px solid var(--pink); }
+  .paynote{ font-size:13px; color:var(--muted); background:var(--pink-soft); border-radius:12px; padding:10px 12px; margin-top:14px; }
+  .sheet .cta{ margin-top:18px; max-width:none; }
+  @media (min-width:820px){ .modal{ align-items:center; } .sheet{ border-radius:26px; } }
+
+  /* persuasión */
+  .mech{ display:grid; gap:12px; max-width:860px; margin:28px auto 0; }
+  .mech div{ background:#fff; border-radius:20px; padding:18px 20px; box-shadow:0 8px 24px rgba(158,11,15,.07); }
+  .mech b{ font-size:17px; color:var(--dark); }
+  .mech p{ font-size:15px; color:var(--muted); margin-top:4px; }
+  .vs3 .row{ grid-template-columns:1.25fr .9fr .9fr 1fr; font-size:13.5px; }
+  .vs3 .row > div{ padding:12px 8px; }
+  .vs3 .head .them{ color:var(--dark); font-weight:800; }
+  .why-sec{ background:#fff; }
+  .why{ display:grid; gap:14px; margin-top:30px; }
+  .why div{ background:var(--cream); border-radius:20px; padding:18px 18px 18px 64px; position:relative; }
+  .why i{ position:absolute; left:16px; top:16px; font-style:normal; font-size:30px; }
+  .why b{ font-size:16.5px; color:var(--dark); display:block; }
+  .why p{ font-size:14.5px; color:var(--muted); margin-top:3px; }
+  .steps3{ display:grid; gap:12px; max-width:860px; margin:28px auto 0; }
+  .steps3 div{ background:#fff; border-radius:20px; padding:18px 18px 18px 72px; position:relative; box-shadow:0 8px 24px rgba(158,11,15,.07); }
+  .steps3 span{ position:absolute; left:16px; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:50%; background:var(--red); color:#fff; font-weight:800; font-size:20px; display:grid; place-items:center; }
+  .steps3 b{ font-size:16.5px; color:var(--dark); display:block; }
+  .steps3 p{ font-size:14.5px; color:var(--muted); }
+  .final{ background:var(--dark); }
+  .final h2{ color:#fff; }
+  .final h2 span{ color:var(--pink); }
+  .final .lead{ color:rgba(255,255,255,.8); }
+  .final .micro{ color:rgba(255,255,255,.65); }
+  .urg{ margin-top:10px; font-size:14px; font-weight:700; color:var(--red); background:var(--pink-soft); border-radius:12px; padding:9px 12px; text-align:center; }
+  @media (min-width:820px){
+    .mech, .steps3{ grid-template-columns:repeat(3,1fr); }
+    .why{ grid-template-columns:repeat(3,1fr); }
+    .vs3 .row{ font-size:15px; }
+  }
+
+  /* barra fija móvil */
+  .sticky{ position:fixed; left:0; right:0; bottom:0; z-index:50; background:#fff; box-shadow:0 -6px 20px rgba(0,0,0,.08); padding:10px 14px; display:flex; align-items:center; gap:12px; }
+  .sticky .p{ line-height:1.1; }
+  .sticky .p b{ display:block; font-size:22px; color:var(--red); font-weight:800; }
+  .sticky .p span{ font-size:12px; color:var(--muted); }
+  .sticky .cta{ padding:14px 18px; font-size:16px; flex:1; max-width:none; }
+  .sticky .cta svg{ width:22px; height:22px; }
+
+  .center{ text-align:center; margin-top:30px; }
+
+  @media (min-width:820px){
+    .hero .wrap{ grid-template-columns:1fr 1fr; gap:50px; }
+    .hero-img{ order:2; }
+    .trust .wrap{ grid-template-columns:repeat(4,1fr); }
+    .grid4{ grid-template-columns:repeat(4,1fr); }
+    .exs{ grid-template-columns:repeat(4,1fr); }
+    .sticky{ display:none; }
+    body{ padding-bottom:0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     CONFIGURACIÓN — cambia SOLO estos datos
+     ============================================================ -->
+<script>
+const CONFIG = {
+  whatsapp: '51943524355',          // número del vendedor: 51 + 9 dígitos, sin espacios ni "+"
+  packs: [                           // ofertas: unidades, precio total en soles, etiqueta
+    { n: 1, precio: 79,  nombre: 'Unidad',  nota: 'Precio regular' },
+    { n: 2, precio: 119, nombre: 'Dúo',     badge: 'Ideal para compartir' },
+    { n: 3, precio: 149, nombre: 'Tripack', badge: 'Mejor precio' }
+  ],
+  colores: [                         // nombre + color del círculo
+    { nombre: 'Rosado', hex: '#E8458B' },
+    { nombre: 'Morado', hex: '#8B5CC8' },
+    { nombre: 'Azul',   hex: '#1E9BC9' }
+  ],
+  envio: 'Lima: 24 a 48 horas · Provincias: 2 a 5 días hábiles',
+  pago:  'Lima: pagas contra entrega, cuando recibes tu pedido. Provincias: separas tu pedido con un adelanto de S/ 20 y el resto lo pagas al recibirlo.',
+  urgencia: 'Quedan pocas unidades en rosado'                       // opcional y REAL, ej: 'Quedan 12 unidades en rosado' o 'Precio válido hasta el domingo'. Vacío = no se muestra
+};
+</script>
+
+<div class="bar">🚚 Envío <b>GRATIS</b> · 💵 En Lima <b>pagas al recibir</b> · 🎁 <b>3 regalos</b></div>
+
+<header><div class="wrap">
+  <img src="logo.png" alt="ZENTRO">
+  <a href="#pedido" style="font-weight:700;color:var(--red);text-decoration:none;font-size:15px;">Pedir ahora →</a>
+</div></header>
+
+<!-- HERO · nivel 5: la oferta, clara y sin riesgo -->
+<section class="hero"><div class="wrap">
+  <div class="hero-img">
+    <img src="hero.jpg" alt="Chica entrenando con el Body Trimmer en casa, disponible en azul, morado y rosado">
+    <span class="badge">🚚 Envío gratis a todo el Perú</span>
+  </div>
+  <div>
+    <span class="kicker">💪 Tu gym en casa · desde S/ 49.67 c/u</span>
+    <h1>Abdomen, piernas y glúteos <span>sin salir de casa</span> y sin pagar gimnasio</h1>
+    <p class="sub">15 minutos en tu sala, cuando tú quieras. Una sola banda con pedales para trabajar todo el cuerpo, aunque nunca hayas entrenado.</p>
+    <ul class="checks">
+      <li>4 ligas de alta resistencia: más firme que el de 2</li>
+      <li>Te enseñamos a usarlo: guía y rutina con dibujos</li>
+      <li>🎁 De regalo: Menú Ligero + 15 Jugos Desinflamantes</li>
+      <li>💵 En Lima pagas cuando lo recibes</li>
+    </ul>
+    <div class="offers js-offers"></div>
+    <div class="offer-note">🎁 Todas las ofertas incluyen <b>envío gratis</b> y los <b>3 regalos</b>.</div>
+    <a class="cta pulse js-wa" href="#" data-src="hero">WA_ICON <span>QUIERO COMPRAR <span class="js-n">1</span></span></a>
+    <p class="micro">Los datos de envío se coordinan por WhatsApp y se confirma tu pedido.</p>
+    <p class="urg js-urg" hidden></p>
+  </div>
+</div></section>
+
+<!-- CONFIANZA · nivel 4 -->
+<div class="trust"><div class="wrap">
+  <div><i>💵</i>Lima: pagas al recibir</div>
+  <div><i>🚚</i>Envío gratis a todo el Perú</div>
+  <div><i>📘</i>Te enseñamos a usarlo</div>
+  <div><i>🎁</i>3 regalos con tu pedido</div>
+</div></div>
+
+<!-- NIVEL 3 · ya sabes que necesitas entrenar: ¿por qué así? -->
+<section class="pain"><div class="wrap">
+  <h2>Ya sabes que tienes que moverte.<br><span>El problema es cómo.</span></h2>
+  <ul>
+    <li>💸 Pagaste el gimnasio y fuiste 2 veces en el mes</li>
+    <li>⏰ Entre el trabajo, la casa y el tráfico, no te queda ni una hora</li>
+    <li>📱 Guardaste mil rutinas de TikTok y no hiciste ninguna</li>
+    <li>😓 Las pesas te intimidan y no sabes si lo estás haciendo bien</li>
+  </ul>
+  <p class="ans">No te falta fuerza de voluntad. Te falta algo que puedas usar en 15 minutos, en tu sala, sin pensarlo. 👇</p>
+</div></section>
+
+<!-- MECANISMO · nivel 3: por qué funciona -->
+<section><div class="wrap">
+  <span class="kicker" style="display:table;margin:0 auto 14px">⚙️ Por qué funciona</span>
+  <h2>La banda trabaja <span>de ida y de vuelta</span></h2>
+  <p class="lead">Con una pesa, el esfuerzo está solo al subir. Con el Body Trimmer, las ligas te resisten cuando jalas <b>y</b> cuando regresas. Por eso cada repetición trabaja más y 15 minutos sí rinden.</p>
+  <div class="mech">
+    <div><b>🦶 Pedales que sujetan</b><p>Tus pies quedan fijos. La banda no se resbala ni te golpea como una liga suelta.</p></div>
+    <div><b>💪 4 ligas, no 2</b><p>Más resistencia y más firmeza. Sigue sirviendo cuando ya tengas más fuerza.</p></div>
+    <div><b>🎚️ Tú pones la intensidad</b><p>Dobla las rodillas para que sea suave o estira más para que cueste. Sirve desde el primer día.</p></div>
+  </div>
+  <div class="photo"><img src="detalle.jpg" alt="Detalle de los pedales antideslizantes, mangos de espuma y 4 ligas" loading="lazy"></div>
+  <div class="grid4">
+    <div class="card"><div class="ic">🔥</div><b>Abdomen y cintura</b><p>Abdominales asistidos sin jalar el cuello.</p></div>
+    <div class="card"><div class="ic">🍑</div><b>Piernas y glúteos</b><p>Press y patadas con resistencia real.</p></div>
+    <div class="card"><div class="ic">💪</div><b>Brazos y espalda</b><p>Curl, remo y hombros con la misma banda.</p></div>
+    <div class="card"><div class="ic">🦵</div><b>Bajo impacto</b><p>Amigable con rodillas y articulaciones.</p></div>
+  </div>
+</div></section>
+
+<!-- COMPARATIVA · nivel 3: contra las otras opciones -->
+<section style="padding-top:10px"><div class="wrap">
+  <h2>¿Gimnasio, ligas sueltas o <span>Body Trimmer?</span></h2>
+  <div class="vs vs3">
+    <div class="row head"><div></div><div class="them">Gimnasio</div><div class="them">Ligas sueltas</div><div class="us">Body Trimmer</div></div>
+    <div class="row"><div>Pago</div><div class="them">Cada mes</div><div class="them">Una vez</div><div class="us">✓ Una vez</div></div>
+    <div class="row"><div>Traslado</div><div class="them">Ida y vuelta</div><div class="them">0 min</div><div class="us">✓ 0 min</div></div>
+    <div class="row"><div>Se sujeta a tus pies</div><div class="them">✗</div><div class="them">✗</div><div class="us">✓</div></div>
+    <div class="row"><div>Rutina incluida</div><div class="them">✗</div><div class="them">✗</div><div class="us">✓</div></div>
+    <div class="row"><div>Plan de comidas</div><div class="them">✗</div><div class="them">✗</div><div class="us">✓</div></div>
+  </div>
+</div></section>
+
+<!-- CÓMO SE USA · nivel 4: me veo usándolo -->
+<section style="padding-top:10px"><div class="wrap">
+  <h2>Imagínate <span>la próxima semana</span></h2>
+  <p class="lead">Llegas a casa, extiendes tu mat, pones los pies en los pedales y en 15 minutos ya terminaste. Sin tráfico, sin miradas, sin excusas.</p>
+  <div class="photo"><img src="en-casa.jpg" alt="Chica haciendo abdominales con el Body Trimmer en su sala" loading="lazy"></div>
+  <div class="exs" id="exs"></div>
+  <p class="lead" style="margin-top:18px">Estos son 4 de los 6 ejercicios de la rutina que te enviamos con tu pedido.</p>
+  <div class="center">
+    <a class="cta js-wa" href="#" data-src="ejercicios">WA_ICON QUIERO EMPEZAR ESTA SEMANA</a>
+  </div>
+</div></section>
+
+<!-- POR QUÉ ZENTRO · nivel 4: por qué comprarnos a nosotros -->
+<section class="why-sec"><div class="wrap">
+  <h2>¿Por qué pedirlo <span>en ZENTRO?</span></h2>
+  <p class="lead">El Body Trimmer lo venden en muchos lados. Lo que no te dan en otros lados es esto:</p>
+  <div class="why">
+    <div><i>💵</i><b>En Lima pagas cuando lo recibes</b><p>Lo tienes en tus manos y recién pagas. Cero riesgo.</p></div>
+    <div><i>📘</i><b>No te dejamos sola con la banda</b><p>Guía ilustrada, rutina de 15 minutos con dibujos y plan semanal.</p></div>
+    <div><i>🥗</i><b>Ejercicio + alimentación</b><p>Menú Ligero y 15 Jugos Desinflamantes, para que el esfuerzo se note más.</p></div>
+    <div><i>🎨</i><b>Eliges tus colores</b><p>Rosado, morado o azul. Si pides 2 o 3, uno distinto para cada uno.</p></div>
+    <div><i>🚚</i><b>Envío gratis a todo el Perú</b><p>Lima en 24 a 48 horas. Provincias en 2 a 5 días hábiles.</p></div>
+    <div><i>💬</i><b>Atención por WhatsApp</b><p>Una persona real confirma tu pedido y te ayuda si tienes dudas.</p></div>
+  </div>
+</div></section>
+
+<!-- QUÉ RECIBES + BONOS · nivel 5: el valor -->
+<section style="padding-top:10px"><div class="wrap">
+  <h2>Todo lo que <span>recibes</span></h2>
+  <div class="photo"><img src="unboxing.jpg" alt="Body Trimmer rosado con su caja y la guía de ejercicios" loading="lazy"></div>
+  <ul class="box">
+    <li><i>🩷</i><div><b>Body Trimmer de 4 ligas</b><br><span style="color:var(--muted);font-size:14.5px">Con pedales y mangos de espuma antideslizantes</span></div></li>
+    <li><i>📘</i><div><b>Guía de uso + rutina de 15 min + plan semanal</b><span class="gift">REGALO 1</span><br><span style="color:var(--muted);font-size:14.5px">6 ejercicios con dibujos de inicio y final</span></div></li>
+    <li><i>🥗</i><div><b>Recetario Menú Ligero</b><span class="gift">REGALO 2</span><br><span style="color:var(--muted);font-size:14.5px">4 semanas de desayuno, almuerzo, cena y snack</span></div></li>
+    <li><i>🥤</i><div><b>15 Jugos Desinflamantes</b><span class="gift">REGALO 3</span><br><span style="color:var(--muted);font-size:14.5px">Recetas de 5 minutos para la noche</span></div></li>
+    <li><i>🚚</i><div><b>Envío gratis a todo el Perú</b><br><span style="color:var(--muted);font-size:14.5px">Sin costo extra, también a provincias</span></div></li>
+  </ul>
+</div></section>
+
+<section class="bonus"><div class="wrap">
+  <span class="kicker" style="display:table;margin:0 auto 14px">🎁 Solo con tu pedido</span>
+  <h2>El ejercicio es la mitad.<br><span>Lo que comes es la otra.</span></h2>
+  <p class="lead">Por eso con tu Body Trimmer te regalamos estos dos recetarios. Te los enviamos en PDF por WhatsApp cuando confirmas tu pedido.</p>
+  <div class="bonos">
+    <div class="bono">
+      <div class="cover"><img src="bono-menu.jpg" alt="Portada del recetario Menú Ligero" loading="lazy"><span>REGALO 2</span></div>
+      <h3>Menú Ligero</h3>
+      <p class="pages">Recetario digital · 54 páginas</p>
+      <ul>
+        <li>Qué comer cada día, sin pasar hambre: 4 semanas ya planificadas</li>
+        <li>42 recetas fáciles con comida de casa: pollo, pescado, lentejas, camote</li>
+        <li>Calorías de cada plato (~1,300 kcal al día)</li>
+        <li>Lista de compras y meal prep del domingo</li>
+        <li>Versión mujer y hombre</li>
+      </ul>
+    </div>
+    <div class="bono">
+      <div class="cover"><img src="bono-jugos.jpg" alt="Portada de 15 Jugos Desinflamantes" loading="lazy"><span>REGALO 3</span></div>
+      <h3>15 Jugos Desinflamantes</h3>
+      <p class="pages">Guía digital · 24 páginas</p>
+      <ul>
+        <li>Para tomar en la noche y amanecer con el abdomen más liviano</li>
+        <li>15 recetas de 5 minutos con lo que hay en el mercado</li>
+        <li>Test rápido: qué jugo te toca según cómo te sientes</li>
+        <li>Cuándo y cuánto tomar, y cuándo NO tomarlos</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- CÓMO PEDIR · nivel 5: quitar fricción -->
+<section style="padding-bottom:20px"><div class="wrap">
+  <h2>Pedirlo toma <span>1 minuto</span></h2>
+  <div class="steps3">
+    <div><span>1</span><b>Elige tu oferta y colores</b><p>1, 2 o 3 unidades, en el color que quieras.</p></div>
+    <div><span>2</span><b>Deja tus datos</b><p>Nombre, DNI, celular y dónde lo recibes.</p></div>
+    <div><span>3</span><b>Te confirmamos por WhatsApp</b><p>Lo despachamos y en Lima pagas al recibir.</p></div>
+  </div>
+</div></section>
+
+<!-- PEDIDO -->
+<section class="order" id="pedido"><div class="wrap">
+  <h2>Elige tu oferta <span>y empieza</span></h2>
+  <p class="lead">Mientras más unidades, menos pagas por cada una. Ideal para entrenar con tu mamá, tu hermana o tu amiga.</p>
+  <div class="order-card">
+    <div class="lbl" style="margin-top:0">1. Elige tu oferta</div>
+    <div class="offers js-offers"></div>
+    <div class="lbl">2. Elige tus colores</div>
+    <div class="unit-colors js-unit-colors"></div>
+    <p class="total">Total: <b id="total">S/ 79</b> · envío gratis + 3 regalos</p>
+    <a class="cta pulse js-wa" href="#" data-src="pedido">WA_ICON <span>QUIERO COMPRAR <span class="js-n">1</span></span></a>
+    <p class="micro">Los datos de envío se coordinan por WhatsApp y se confirma tu pedido.</p>
+    <p class="micro">🚚 <span class="js-envio"></span></p>
+    <p class="urg js-urg" hidden></p>
+  </div>
+</div></section>
+
+<!-- FAQ · nivel 4: objeciones -->
+<section><div class="wrap">
+  <h2>¿Todavía <span>dudas?</span></h2>
+  <div class="faq">
+    <details><summary>¿Y si nunca he hecho ejercicio?</summary><p>Es justo para ti. Es de resistencia media y tú controlas la intensidad: doblas un poco las rodillas para que sea más suave o estiras más para que cueste más. Además te enviamos una rutina para principiantes con dibujos de cada ejercicio.</p></details>
+    <details><summary>¿Es seguro pagar? ¿Y si no me llega?</summary><p class="js-pago"></p></details>
+    <details><summary>¿Me va a hacer bajar de peso?</summary><p>Te vamos a ser honestos: ningún aparato baja de peso solo. El Body Trimmer te ayuda a tonificar y fortalecer abdomen, piernas, glúteos y brazos. Para bajar de peso, lo que comes es clave. Por eso te regalamos el Menú Ligero, con 4 semanas de comidas ya planificadas.</p></details>
+    <details><summary>¿Cuánto demora el envío?</summary><p class="js-envio"></p></details>
+    <details><summary>¿Cuánto tiempo al día tengo que usarlo?</summary><p>Con 15 minutos, 3 veces por semana, ya tienes una rutina completa. Lo importante es la constancia, y como lo tienes en tu sala, es mucho más fácil no dejarlo.</p></details>
+    <details><summary>¿Es resistente?</summary><p>Tiene 4 ligas, más firmes que los modelos de 2. Para que te dure: guárdalo lejos del sol y límpialo con un paño húmedo.</p></details>
+    <details><summary>¿Qué colores hay?</summary><p class="js-colores"></p></details>
+    <details><summary>Si compro 2 o 3, ¿puedo elegir colores distintos?</summary><p>Sí. Al elegir el Dúo o el Tripack, escoges el color de cada unidad antes de hacer tu pedido.</p></details>
+    <details><summary>¿Cómo recibo los regalos?</summary><p>Cuando confirmas tu pedido, te enviamos por WhatsApp los PDF: la guía de uso con la rutina, el Menú Ligero y los 15 Jugos Desinflamantes. Los puedes ver en el celular o imprimir.</p></details>
+  </div>
+</div></section>
+
+<!-- CIERRE · nivel 5 -->
+<section class="final"><div class="wrap">
+  <h2>Puedes esperar al <span>"lunes empiezo"</span>…</h2>
+  <p class="lead">…o tenerlo en tu casa en 24 a 48 horas y empezar esta misma semana. Con tu rutina, tu menú y tus jugos listos. En Lima, pagas recién cuando lo recibes.</p>
+  <div class="center">
+    <a class="cta pulse js-wa" href="#" data-src="final">WA_ICON <span>QUIERO COMPRAR <span class="js-n">1</span></span></a>
+    <p class="micro">Envío gratis · 3 regalos · Lima: pagas al recibir</p>
+  </div>
+</div></section>
+
+<footer>
+  <img src="logo.png" alt="ZENTRO">
+  <p>Todo en un solo zentro · Envío gratis a todo el Perú</p>
+  <p style="margin-top:6px;font-size:12px;opacity:.7">Resultados varían según la constancia, la alimentación y la actividad de cada persona.</p>
+</footer>
+
+<!-- FORMULARIO DE PEDIDO -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <form class="sheet" id="orderForm" novalidate>
+    <div class="sheet-hd"><h3 id="mt">Completa tus datos de envío</h3><button type="button" class="x" id="closeM" aria-label="Cerrar">×</button></div>
+    <div class="sum">
+      <div class="l1"><span id="sumName"></span><b id="sumTotal"></b></div>
+      <div class="l2">Envío gratis + 3 regalos · elige tu color:</div>
+      <div class="unit-colors js-unit-colors"></div>
+    </div>
+    <div class="f" data-f="nombre"><label for="fNombre">Nombre y apellido</label><input id="fNombre" autocomplete="name" placeholder="Ej: María Pérez"><div class="err">Escribe tu nombre y apellido.</div></div>
+    <div class="two">
+      <div class="f" data-f="dni"><label for="fDni">DNI</label><input id="fDni" inputmode="numeric" maxlength="8" placeholder="8 dígitos"><div class="err">El DNI tiene 8 números.</div></div>
+      <div class="f" data-f="cel"><label for="fCel">Celular</label><input id="fCel" inputmode="tel" autocomplete="tel" maxlength="9" placeholder="9XXXXXXXX"><div class="err">9 números, empieza con 9.</div></div>
+    </div>
+    <div class="f" data-f="zona"><label>¿Dónde lo recibes?</label>
+      <div class="zone">
+        <label><input type="radio" name="zona" value="Lima" checked><span>Lima / Callao<small>Pagas contra entrega</small></span></label>
+        <label><input type="radio" name="zona" value="Provincia"><span>Provincia<small>Adelanto de S/ 20</small></span></label>
+      </div>
+    </div>
+    <div class="f" data-f="prov" id="provBox" hidden><label for="fProv">Departamento / provincia</label><input id="fProv" list="depList" placeholder="Ej: Arequipa"><div class="err">Escribe tu provincia.</div></div>
+    <div class="f" data-f="dist"><label for="fDist">Distrito</label><input id="fDist" list="limaList" placeholder="Ej: San Juan de Lurigancho"><div class="err">Escribe tu distrito.</div></div>
+    <div class="f" data-f="dir" id="dirBox"><label for="fDir">Dirección y referencia</label><input id="fDir" autocomplete="street-address" placeholder="Ej: Av. Los Álamos 123, frente al parque"><div class="err">Escribe tu dirección para la entrega.</div></div>
+    <p class="paynote" id="payNote"></p>
+    <button type="submit" class="cta pulse">WA_ICON PEDIR AHORA</button>
+    <p class="micro" style="text-align:center">Tus datos llegan al vendedor por WhatsApp para confirmar tu pedido.</p>
+  </form>
+</div>
+<datalist id="limaList"><option value="Ancón"><option value="Ate"><option value="Barranco"><option value="Breña"><option value="Carabayllo"><option value="Chaclacayo"><option value="Chorrillos"><option value="Cieneguilla"><option value="Comas"><option value="El Agustino"><option value="Independencia"><option value="Jesús María"><option value="La Molina"><option value="La Victoria"><option value="Lima Cercado"><option value="Lince"><option value="Los Olivos"><option value="Lurigancho - Chosica"><option value="Lurín"><option value="Magdalena del Mar"><option value="Miraflores"><option value="Pachacámac"><option value="Pucusana"><option value="Pueblo Libre"><option value="Puente Piedra"><option value="Punta Hermosa"><option value="Punta Negra"><option value="Rímac"><option value="San Bartolo"><option value="San Borja"><option value="San Isidro"><option value="San Juan de Lurigancho"><option value="San Juan de Miraflores"><option value="San Luis"><option value="San Martín de Porres"><option value="San Miguel"><option value="Santa Anita"><option value="Santa María del Mar"><option value="Santa Rosa"><option value="Santiago de Surco"><option value="Surquillo"><option value="Villa El Salvador"><option value="Villa María del Triunfo"><option value="Callao"><option value="Bellavista"><option value="Carmen de la Legua"><option value="La Perla"><option value="La Punta"><option value="Ventanilla"><option value="Mi Perú"></datalist>
+<datalist id="depList"><option value="Amazonas"><option value="Áncash"><option value="Apurímac"><option value="Arequipa"><option value="Ayacucho"><option value="Cajamarca"><option value="Callao"><option value="Cusco"><option value="Huancavelica"><option value="Huánuco"><option value="Ica"><option value="Junín"><option value="La Libertad"><option value="Lambayeque"><option value="Lima Provincias"><option value="Loreto"><option value="Madre de Dios"><option value="Moquegua"><option value="Pasco"><option value="Piura"><option value="Puno"><option value="San Martín"><option value="Tacna"><option value="Tumbes"><option value="Ucayali"></datalist>
+
+<div class="sticky">
+  <div class="p"><b class="js-precio">S/ 79</b><span>Envío gratis · <span class="js-n">1</span> und.</span></div>
+  <a class="cta js-wa" href="#" data-src="sticky">WA_ICON PEDIR AHORA</a>
+</div>
+
+<script>
+/* ---------- WhatsApp ---------- */
+const WA_SVG = '<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.3-3.8 1.2 1.2-3.7-.3-.4a10.4 10.4 0 0 1-1.7-5.8C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2l-1.1 1.3c-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.6-.7c.2-.2.2-.4.3-.6.1-.2 0-.5 0-.6l-1-2.5c-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.1 2.9 1.1 3.5.9 4.1.8.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>';
+let pack = CONFIG.packs[0], colors = [CONFIG.colores[0].nombre];
+const soles = n => 'S/ ' + n;
+const regular = n => CONFIG.packs[0].precio * n;
+
+function waLink(d) {
+  d = d || {};
+  const lima = d.zona !== 'Provincia';
+  const msg =
+`Hola 👋 Quiero confirmar mi pedido 🩷
+
+🛒 *PEDIDO*
+• ${pack.nombre}: ${pack.n} Body Trimmer
+• ${pack.n > 1 ? 'Colores' : 'Color'}: ${colors.slice(0, pack.n).join(', ')}
+• Total: *${soles(pack.precio)}* · envío gratis + 3 regalos
+
+👤 *MIS DATOS*
+• Nombre: ${d.nombre || ''}
+• DNI: ${d.dni || ''}
+• Celular: ${d.cel || ''}
+• Envío: ${lima ? 'Lima / Callao' : 'Provincia'}${lima ? '' : `
+• Provincia: ${d.prov || ''}`}
+• Distrito: ${d.dist || ''}${lima ? `
+• Dirección: ${d.dir || ''}` : ''}${!lima && d.dir ? `
+• Dirección / agencia: ${d.dir}` : ''}
+
+💳 Pago: ${lima ? 'contra entrega' : 'adelanto de S/ 20 y el resto al recibir'}`;
+  return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg);
+}
+function renderOffers() {
+  const html = CONFIG.packs.map(p => {
+    const reg = regular(p.n), save = Math.round((1 - p.precio / reg) * 100);
+    const unit = (p.precio / p.n).toFixed(2).replace('.00', '');
+    return `<div class="offer" data-n="${p.n}" role="radio" tabindex="0">
+      ${p.badge ? `<span class="bdg">${p.badge}</span>` : ''}
+      <span class="radio"></span>
+      <div class="nm"><b>${p.nombre}</b>${p.n > 1 ? `<span class="save">Ahorras ${save}% · ${soles(unit)} c/u</span>` : `<span>${p.nota || ''}</span>`}</div>
+      <div class="pr"><b>${soles(p.precio)}</b>${p.n > 1 ? `<s>${soles(reg)}</s>` : ''}</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.js-offers').forEach(el => el.innerHTML = html);
+  document.querySelectorAll('.offer').forEach(o => {
+    const pick = () => { pack = CONFIG.packs.find(p => p.n == o.dataset.n); while (colors.length < pack.n) colors.push(colors[colors.length - 1]); refresh(); };
+    o.addEventListener('click', pick);
+    o.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+  });
+}
+function renderColors() {
+  document.querySelectorAll('.js-unit-colors').forEach(box => renderColorsIn(box));
+}
+function renderColorsIn(box) {
+  box.innerHTML = Array.from({ length: pack.n }, (_, i) => `<div class="row">${pack.n > 1 ? `<small>Unidad ${i + 1}</small>` : ''}<div class="colors">${
+    CONFIG.colores.map(c => `<button type="button" class="color${colors[i] === c.nombre ? ' on' : ''}" data-i="${i}" data-c="${c.nombre}"><i style="background:${c.hex}"></i>${c.nombre}</button>`).join('')
+  }</div></div>`).join('');
+  box.querySelectorAll('.color').forEach(b => b.addEventListener('click', () => { colors[b.dataset.i] = b.dataset.c; refresh(); }));
+}
+function refresh() {
+  document.querySelectorAll('.offer').forEach(o => { const on = o.dataset.n == pack.n; o.classList.toggle('on', on); o.setAttribute('aria-checked', on); });
+  renderColors();
+  document.getElementById('total').textContent = soles(pack.precio);
+  document.getElementById('sumName').textContent = `${pack.nombre} · ${pack.n} ${pack.n > 1 ? 'unidades' : 'unidad'}`;
+  document.getElementById('sumTotal').textContent = soles(pack.precio);
+  document.querySelectorAll('.js-n').forEach(e => e.textContent = pack.n);
+  document.querySelectorAll('.js-precio').forEach(e => e.textContent = soles(pack.precio));
+  document.querySelectorAll('.js-wa').forEach(a => { a.href = waLink(); });
+}
+document.querySelectorAll('.js-wa').forEach(a => {
+  a.innerHTML = a.innerHTML.replace('WA_ICON', WA_SVG);
+  a.target = '_blank'; a.rel = 'noopener';
+  a.addEventListener('click', e => { e.preventDefault(); openForm(); });
+});
+
+/* ---------- formulario ---------- */
+const modal = document.getElementById('modal'), form = document.getElementById('orderForm');
+const $ = id => document.getElementById(id);
+form.querySelector('.cta').innerHTML = form.querySelector('.cta').innerHTML.replace('WA_ICON', WA_SVG);
+function openForm() {
+  modal.classList.add('open'); document.body.style.overflow = 'hidden';
+  setTimeout(() => $('fNombre').focus(), 50);
+  if (window.fbq) fbq('track', 'InitiateCheckout', { value: pack.precio, currency: 'PEN', num_items: pack.n });
+}
+function closeForm() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+$('closeM').onclick = closeForm;
+modal.addEventListener('click', e => { if (e.target === modal) closeForm(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeForm(); });
+function zone() { return form.querySelector('input[name=zona]:checked').value; }
+function syncZone() {
+  const lima = zone() === 'Lima';
+  $('provBox').hidden = lima;
+  $('fDist').setAttribute('list', lima ? 'limaList' : '');
+  $('fDist').placeholder = lima ? 'Ej: San Juan de Lurigancho' : 'Ej: Cayma';
+  $('dirBox').querySelector('label').textContent = lima ? 'Dirección y referencia' : 'Dirección o agencia de preferencia (opcional)';
+  $('payNote').textContent = lima
+    ? '💵 Lima / Callao: pagas cuando recibes tu pedido (contra entrega).'
+    : '💳 Provincia: separas tu pedido con un adelanto de S/ 20 y el resto lo pagas al recibirlo.';
+}
+form.querySelectorAll('input[name=zona]').forEach(r => r.addEventListener('change', syncZone));
+['fDni', 'fCel'].forEach(id => $(id).addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, ''); }));
+form.querySelectorAll('.f input').forEach(i => i.addEventListener('input', () => i.closest('.f').classList.remove('bad')));
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const lima = zone() === 'Lima';
+  const d = { nombre: $('fNombre').value.trim(), dni: $('fDni').value.trim(), cel: $('fCel').value.trim(), zona: zone(),
+              prov: $('fProv').value.trim(), dist: $('fDist').value.trim(), dir: $('fDir').value.trim() };
+  const checks = {
+    nombre: d.nombre.split(/\s+/).length >= 2,
+    dni: /^\d{8}$/.test(d.dni),
+    cel: /^9\d{8}$/.test(d.cel),
+    prov: lima || d.prov.length > 1,
+    dist: d.dist.length > 1,
+    dir: !lima || d.dir.length > 4
+  };
+  let first = null;
+  Object.entries(checks).forEach(([k, ok]) => {
+    const box = form.querySelector(`[data-f="${k}"]`);
+    box.classList.toggle('bad', !ok);
+    if (!ok && !first) first = box.querySelector('input');
+  });
+  if (first) { first.focus(); return; }
+  if (window.fbq) fbq('track', 'Lead', { value: pack.precio, currency: 'PEN', num_items: pack.n });
+  window.open(waLink(d), '_blank');
+});
+syncZone();
+document.querySelectorAll('.js-envio').forEach(e => e.textContent = CONFIG.envio);
+document.querySelectorAll('.js-pago').forEach(e => e.textContent = CONFIG.pago);
+document.querySelectorAll('.js-colores').forEach(e => e.textContent = 'Tenemos ' + CONFIG.colores.map(c => c.nombre).join(', ').replace(/, ([^,]*)$/, ' y $1') + '. Lo eliges antes de pedir, aquí mismo en la página.');
+if (CONFIG.urgencia) document.querySelectorAll('.js-urg').forEach(e => { e.textContent = '⏳ ' + CONFIG.urgencia; e.hidden = false; });
+renderOffers();
+refresh();
+
+/* ---------- ilustraciones de ejercicios ---------- */
+const P = (o, a, l) => ({ x: o.x + l * Math.cos(a * Math.PI / 180), y: o.y - l * Math.sin(a * Math.PI / 180) });
+const mid = (a, b) => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+function side(o) {
+  const hip = o.hip, shoulder = P(hip, o.torso, 92), neck = P(hip, o.torso, 100), head = P(hip, o.torso, 128);
+  const leg = (th, sh, fa) => { const k = P(hip, th, 86), a = P(k, sh, 86), t = P(a, fa ?? sh + 90, 24); return { pts: [hip, k, a, t], foot: mid(a, t) }; };
+  const arm = (ua, fa) => { const e = P(shoulder, ua, 62), w = P(e, fa, 58); return { pts: [shoulder, e, w], hand: w }; };
+  const ln = leg(o.thN, o.shN, o.ftN), lf = leg(o.thF, o.shF, o.ftF), an = arm(o.uaN, o.faN), af = arm(o.uaN, o.faN);
+  const fd = o.farShift || [-6, -4], sh = (pts) => pts.map(p => ({ x: p.x + fd[0], y: p.y + fd[1] }));
+  const fF = { x: lf.foot.x + fd[0], y: lf.foot.y + fd[1] }, fH = { x: af.hand.x + fd[0], y: af.hand.y + fd[1] };
+  return { far: [sh(lf.pts), sh(af.pts)], near: [ln.pts, an.pts], torso: [hip, neck], head, dir: o.torso,
+    pedals: o.onePedal ? [ln.foot] : [fF, ln.foot], handles: [fH, an.hand], bands: o.onePedal ? [[ln.foot, an.hand]] : [[fF, fH], [ln.foot, an.hand]] };
+}
+const poly = (pts, c, w) => `<polyline points="${pts.map(p => p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ')}" fill="none" stroke="${c}" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round"/>`;
+function draw(f, vb) {
+  const g = [];
+  f.far.forEach(p => g.push(poly(p, '#C79AA0', 20)));
+  f.bands.forEach(([a, b]) => { g.push(poly([a, b], '#EE6F96', 8)); g.push(poly([a, b], '#FFD3E0', 2.5)); });
+  g.push(poly(f.torso, '#9E0B0F', 34));
+  g.push(`<circle cx="${f.head.x}" cy="${f.head.y}" r="24" fill="#4A0A0E"/>`);
+  const t = P(f.head, f.dir + 125, 26); g.push(`<circle cx="${t.x}" cy="${t.y}" r="11" fill="#4A0A0E"/>`);
+  f.near.forEach(p => g.push(poly(p, '#4A0A0E', 21)));
+  f.pedals.forEach(p => g.push(`<rect x="${p.x - 17}" y="${p.y - 6}" width="34" height="12" rx="6" fill="#E85A86"/>`));
+  f.handles.forEach(p => g.push(`<rect x="${p.x - 9}" y="${p.y - 15}" width="18" height="30" rx="9" fill="#E85A86" stroke="#fff" stroke-width="2"/>`));
+  return `<svg viewBox="${vb}" xmlns="http://www.w3.org/2000/svg" role="img"><rect x="0" y="344" width="400" height="14" rx="7" fill="#FDE4EA"/>${g.join('')}</svg>`;
+}
+const EXS = [
+  { n: 'Abdominales', z: 'Abdomen', vb: '40 135 300 225', f: side({ hip: { x: 175, y: 318 }, torso: 140, thN: 36, shN: -58, thF: 39, shF: -56, uaN: -26, faN: 90, ftN: 30, ftF: 32 }) },
+  { n: 'Remo sentado', z: 'Espalda · Brazos', vb: '20 135 300 225', f: side({ hip: { x: 95, y: 324 }, torso: 94, thN: 0, shN: 0, thF: 1, shF: -1, uaN: -132, faN: 6 }) },
+  { n: 'Press de piernas', z: 'Piernas · Glúteos', vb: '45 135 300 225', f: side({ hip: { x: 215, y: 320 }, torso: 180, thN: 55, shN: 52, thF: 58, shF: 55, uaN: 22, faN: 88, ftN: 142, ftF: 145, farShift: [-4, -6] }) },
+  { n: 'Patada de glúteo', z: 'Glúteos', vb: '15 104 345 259', f: side({ hip: { x: 205, y: 240 }, torso: 10, thN: 168, shN: 172, ftN: 250, thF: -90, shF: 180, ftF: 180, uaN: -90, faN: -90, farShift: [6, 0], onePedal: true }) }
+];
+document.getElementById('exs').innerHTML = EXS.map(e => `<div class="ex">${draw(e.f, e.vb)}<b>${e.n}</b><span>${e.z}</span></div>`).join('');
+</script>
+</body>
+</html>
